@@ -1,11 +1,11 @@
 package gravity_game.gameState;
 
-import gravity_game.game_engine.AllTheMethods;
+import gravity_game.game_engine.PrimaryFunctionality;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public abstract class GameState implements AllTheMethods{
+public abstract class GameState implements PrimaryFunctionality {
     //This class represents all things constant between any state the game can be in.
 
     //Every game state will need the ability to change the game state

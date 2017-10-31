@@ -3,7 +3,7 @@ package gravity_game.game_engine;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public interface AllTheMethods {
+public interface PrimaryFunctionality {
     void tick();
     void render(Graphics g);
     void keyPressed(int k);

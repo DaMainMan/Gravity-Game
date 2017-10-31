@@ -145,7 +145,6 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 
     public void keyReleased(KeyEvent e) {
         int k = e.getKeyCode();
-        //k is an integer representing the key that was released
         gsm.keyReleased(k);
     }
 

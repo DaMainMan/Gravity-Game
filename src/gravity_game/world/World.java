@@ -1,11 +1,11 @@
 package gravity_game.world;
 
-import gravity_game.game_engine.AllTheMethods;
+import gravity_game.game_engine.PrimaryFunctionality;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class World implements AllTheMethods{
+public class World implements PrimaryFunctionality {
     private GameObjectManager objectManager;
     public World(){
         objectManager = new GameObjectManager();
