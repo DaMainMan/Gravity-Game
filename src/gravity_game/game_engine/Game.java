@@ -12,6 +12,7 @@ import java.awt.image.BufferStrategy;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game extends Canvas implements Runnable, KeyListener, MouseListener {
@@ -28,6 +29,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
     private GameStateManager gsm;
     private static long runningTime = 0;
     private static String directory;
+    private static KeyMap keyMap;
 
     public Game() throws IOException {
         window = new Window(TITLE, 3, this);
@@ -40,7 +42,9 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
         requestFocus();
         running = true;
         initializeDirectory();
-        gsm = new GameStateManager();
+        keyMap = new KeyMap();
+        keyMap.load(new DataStorage());
+        gsm = new GameStateManager(keyMap);
         thread.start();
     }
 
@@ -58,6 +62,10 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
 
             }
         }
+    }
+
+    public ArrayList<String> readTextFile(String filePath){
+
     }
 
     public void run() {
@@ -128,7 +136,7 @@ public class Game extends Canvas implements Runnable, KeyListener, MouseListener
             //iteration.
             return;
         }
-        Graphics g = bs.getDrawGraphics();
+        Graphics2D g = (Graphics2D)bs.getDrawGraphics();
         gsm.render(g);
         g.dispose();
         bs.show();

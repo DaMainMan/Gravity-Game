@@ -1,11 +1,8 @@
-package gravity_game.game_engine;
+package gravity_game.game_engine.interfaces;
 
-import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public interface PrimaryFunctionality {
-    void tick();
-    void render(Graphics g);
+public interface InputFunctionality {
     void keyPressed(int k);
     void keyReleased(int k);
     void mousePressed(MouseEvent e);

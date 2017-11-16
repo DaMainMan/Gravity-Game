@@ -1,13 +1,15 @@
 package gravity_game.gameState;
 
+import gravity_game.game_engine.KeyMap;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
 public class MenuState extends GameState {
     //The menu state functions as a way for the user to navigate their way through all accessible game modes.
     //Overall, this adds a more professional feel to any game.
-    public MenuState(GameStateManager gsm) {
-        super(gsm);
+    public MenuState(GameStateManager gsm, KeyMap keyMap) {
+        super(gsm, keyMap);
     }
 
     @Override
@@ -16,7 +18,7 @@ public class MenuState extends GameState {
     }
 
     @Override
-    public void render(Graphics g) {
+    public void render(Graphics2D g) {
 
     }
 

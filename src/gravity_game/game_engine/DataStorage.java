@@ -59,4 +59,8 @@ public class DataStorage {
         }
         return out;
     }
+
+    public int size() {
+        return data.size();
+    }
 }

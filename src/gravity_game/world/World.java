@@ -1,24 +1,32 @@
 package gravity_game.world;
 
-import gravity_game.game_engine.PrimaryFunctionality;
+import gravity_game.game_engine.KeyMap;
+import gravity_game.game_engine.interfaces.InputFunctionality;
+import gravity_game.game_engine.interfaces.PrimaryFunctionality;
+import gravity_game.object.Player;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
 
-public class World implements PrimaryFunctionality {
+public class World implements PrimaryFunctionality, InputFunctionality {
     private GameObjectManager objectManager;
-    public World(){
+    private Player player;
+    private KeyMap keyMap;
+    public World(KeyMap keyMap) {
         objectManager = new GameObjectManager();
+        player = new Player(this, keyMap);
+        objectManager.add(player);
+        this.keyMap = keyMap;
     }
 
     @Override
     public void tick() {
-
+        objectManager.tick();
     }
 
     @Override
-    public void render(Graphics g) {
-
+    public void render(Graphics2D g) {
+        objectManager.render(g);
     }
 
     @Override
@@ -43,5 +51,9 @@ public class World implements PrimaryFunctionality {
 
     public GameObjectManager getObjectManager() {
         return objectManager;
+    }
+
+    public Player getPlayer() {
+        return player;
     }
 }

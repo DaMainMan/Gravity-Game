@@ -1,4 +1,4 @@
-package gravity_game.object;
+package gravity_game.object.position;
 
 import gravity_game.game_engine.Game;
 
@@ -26,7 +26,7 @@ public class Position{
         rotation = position.rotation;
     }
 
-    public Position translatePosition(Position position){
+    public Position translate(Position position){
         this.x += position.x;
         this.y += position.y;
         return this;
@@ -83,8 +83,8 @@ public class Position{
     }
 
     public Position renderPosition(){
-        if(playerCentric)return new Position(this).translatePosition(offset).rotateAbout(new Position(Game.getWIDTH()/2, Game.getHEIGHT()/2, 0), offset.rotation);
-        return new Position(this).translatePosition(offset);
+        if(playerCentric)return new Position(this).translate(offset).rotateAbout(new Position(Game.getWIDTH()/2, Game.getHEIGHT()/2, 0), offset.rotation);
+        return new Position(this).translate(offset);
     }
 
     public static Position getOffset() {
@@ -107,6 +107,18 @@ public class Position{
     public Position setY(double y){
         this.y=y;
         return this;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getRotation() {
+        return rotation;
     }
 
     public Position setRotation(double rotation){

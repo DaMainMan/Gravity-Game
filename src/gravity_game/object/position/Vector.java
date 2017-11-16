@@ -1,4 +1,4 @@
-package gravity_game.object;
+package gravity_game.object.position;
 
 public class Vector {
     private double velX, velY, velAngle, direction, magnitude;

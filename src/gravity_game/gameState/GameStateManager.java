@@ -1,5 +1,7 @@
 package gravity_game.gameState;
 
+import gravity_game.game_engine.KeyMap;
+
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
@@ -7,11 +9,13 @@ import java.util.ArrayList;
 public class GameStateManager {
     //This class has the basic function of organizing and controlling all of the states the game can be in.
     private ArrayList<GameState> states;
+    private KeyMap keyMap;
     private int gameState;
 
-    public GameStateManager() {
-        gameState = 1;
+    public GameStateManager(KeyMap keyMap) {
+        gameState = 0;
         states = new ArrayList<>();
+        this.keyMap = keyMap;
         registerStates();
     }
 
@@ -19,7 +23,7 @@ public class GameStateManager {
         states.get(gameState).tick();
     }
 
-    public void render(Graphics g) {
+    public void render(Graphics2D g) {
         states.get(gameState).render(g);
     }
 
@@ -47,7 +51,7 @@ public class GameStateManager {
     }
 
     public void registerStates() {
-        states.add(new MenuState(this));
-        states.add(new WorldState(this));
+        states.add(new MenuState(this, keyMap));
+        states.add(new WorldState(this, keyMap));
     }
 }

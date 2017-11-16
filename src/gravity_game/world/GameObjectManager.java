@@ -31,7 +31,7 @@ public class GameObjectManager {
         }
     }
 
-    public void render(Graphics g){
+    public void render(Graphics2D g){
         for(GameObject object : objects){
             object.render(g);
         }
